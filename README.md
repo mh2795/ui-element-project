@@ -28,4 +28,4 @@ This project is not licensed but please don't steal my work without giving me cr
 
 ## Acknowledgments
 
-* Credits to Noah for helping me with the API authorizaton
+* Credits to Noah for helping me with the API authentication
