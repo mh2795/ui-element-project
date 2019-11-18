@@ -23,6 +23,8 @@ height: 86vh;
 }
 
 #charInfo {
+    display: flex;
+    align-items: center;
     justify-content: center;
     margin: 50px;
     width: 70vw;
@@ -31,6 +33,18 @@ height: 86vh;
     border-radius: 20px;
     position: absolute;
 
+}
+
+.infoChar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 70%;
+    color: black;
+    z-index: 1;
+    font-size: 20px;
+    text-align: center;
 }
 
 aside {
@@ -125,6 +139,13 @@ padding: 15px;
 width: 60%;
 display: inline-block;
 font-size: 16px;
+}
+
+#text {
+    padding: 15px;
+    width: 60%;
+    display: inline-block;
+    font-size: 16px;
 }
 
 .text img {

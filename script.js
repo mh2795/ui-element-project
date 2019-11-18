@@ -1,5 +1,8 @@
 const URL = "http://developer.marvel.com"
 let selectCharacter = document.querySelector(".content")
+let infoChar = document.querySelector('.infoChar')
+
+
 class MarvelApi{
     constructor(){
       this.root = "https://gateway.marvel.com/v1/public/";
@@ -14,10 +17,10 @@ class MarvelApi{
       return cred;
     }
     
-    charactersMenu = (array) => {
-            for(let i = 0; i < array.length; i++){
+    charactersMenu = (chars) => {
+            for(let i = 0; i < chars.length; i++){
               console.log(i);
-              let char = array[i];
+              let char = chars[i];
               let li = document.createElement("li");
               let thumbnail = document.createElement("img");
               thumbnail.src = `${char.thumbnail.path}.${char.thumbnail.extension}`;
@@ -27,6 +30,11 @@ class MarvelApi{
                 e.preventDefault;
                 console.log(e)
                 aside.classList.toggle("toggle");
+                infoChar.innerText = chars[i].description
+                console.log("CLickity")
+                console.log(chars[i].description)
+  
+                // infoChar.innerText = array[i].description
             });
               aside.appendChild(li);
               li.classList.add("border")
@@ -49,6 +57,7 @@ class MarvelApi{
     //     .catch(err => console.log("err", err)); 
     // }
     
+
     getCharacterList(){
       fetch(this.characters+this.getCreds())
         .then(res => res.json())
@@ -56,6 +65,13 @@ class MarvelApi{
           console.log(res.data.results);
           let chars = res.data.results;
           this.charactersMenu(chars);
+          for (let i = 0; i < thumbnail.length; i++) {
+            thumbnail[i].addEventListener('click', function(e) {
+              e.preventDefault();
+              infoChar.innerHTML = chars[i].description
+              console.log("CLickity")
+            })
+          }
         })
         .catch(err => console.log("err", err));
     }
